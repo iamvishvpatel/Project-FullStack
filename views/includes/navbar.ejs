@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-md bg-body-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-location-arrow"></i><b>WanderLust</b></a>
+      <button class="navbar-tgl" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+        </div>
+
+        
+
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <% if(!currUser) { %>
+          <a class="nav-link" href="/signup">Sign Up</a>
+          <a class="nav-link" href="/login">Log in</a>
+          <% } %>
+          <% if(currUser) { %>
+          <a class="nav-link" href="/logout">Log Out</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    let btn = document.querySelector(".navbar-tgl");
+    let nav = document.querySelector(".navbar");
+    let flag = 0
+    
+    btn.addEventListener("click", ()=>{
+      if(flag == 0){
+        nav.classList.add('active')
+        nav.classList.remove('de-active')
+
+        // nav.style.height = "17rem";
+        flag = 1;
+      }
+      else{
+        nav.classList.remove('active')
+        nav.classList.add('de-active')
+      // nav.style.height = "4rem";
+      flag = 0;
+      }
+    })
+
+  </script>
